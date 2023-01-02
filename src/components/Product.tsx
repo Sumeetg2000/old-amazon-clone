@@ -10,7 +10,8 @@ export interface productType {
 }
 
 function Product({ id, title, image, price, rating }: productType) {
-  const [ dispatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{}, dispatch] = useStateValue();
 
   const addToBasket = () => {
     dispatch({

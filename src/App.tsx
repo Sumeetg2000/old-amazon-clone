@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import Checkout from "./components/Checkout";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -10,7 +10,8 @@ import { auth } from "./firebase/firebase";
 import "./styles/App.css";
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -23,8 +24,6 @@ function App() {
       unsubscribe();
     };
   }, [dispatch]);
-  console.log(user);
-  
 
   return (
     <Router>
@@ -33,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<Navigate  to={'/'}/>}/>
       </Routes>
     </Router>
   );

@@ -2,7 +2,7 @@ import { productType } from "../components/Product";
 
 export type StateType = {
   basket: productType[];
-  user: null ;
+  user: null | object;
 };
 
 export const initialState: StateType = {
@@ -14,12 +14,14 @@ export type ActionType =
   | { type: "ADD_TO_BASKET"; product: productType }
   | { type: "REMOVE_FROM_BASKET"; id: string }
   | { type: "EMPTY_BASKET" }
-  | { type: "SET_USER"; user:null|any };
+  | { type: "SET_USER"; user: null | object };
 
-  export const getBasketTotal = (basket: productType[]) =>
-    basket?.reduce((amount: number, item: { price: number; }) => item.price + amount, 0);
+export const getBasketTotal = (basket: productType[]) =>
+  basket?.reduce(
+    (amount: number, item: { price: number }) => item.price + amount,
+    0
+  );
 
-    
 function reducer(state: StateType, action: ActionType): StateType {
   switch (action.type) {
     case "ADD_TO_BASKET":
