@@ -1,11 +1,9 @@
 import React, { Fragment } from "react";
 import "../styles/Checkout.css";
-// import Subtotal from "./Subtotal";
 import { useStateValue } from "../context/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import { productType } from "./Product";
 import Subtotal from "./Subtotal";
-// import CheckoutProduct from "./CheckoutProduct";
 
 function Checkout() {
   const [{ basket, user }] = useStateValue();

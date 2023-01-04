@@ -8,9 +8,8 @@ function CheckoutProduct({
   title,
   price,
   rating,
-//   hideButton,
 }: productType) {
-  const [ dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
     dispatch({
@@ -33,7 +32,6 @@ function CheckoutProduct({
           {Array(rating).fill('🌟')}
         </div>
         {
-        // !hideButton && 
         (
           <button onClick={removeFromBasket}>Remove from Basket</button>
         )}
