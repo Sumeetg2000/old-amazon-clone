@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Search, ShoppingBasket } from "@mui/icons-material";
 import "../styles/Header.css";
-import { useStateValue } from "../context/StateProvider";
+import { ContextValue, useStateValue } from "../context/StateProvider";
 import { auth, signOut } from "../firebase/firebase";
 
 function Header() {
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }] = useStateValue() as ContextValue;
 
   const handleAuthenticaton = () => {
     if (user) {

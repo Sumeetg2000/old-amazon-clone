@@ -1,10 +1,10 @@
 import CurrencyFormat from "react-currency-format";
-import { useStateValue } from "../context/StateProvider";
+import { ContextValue, useStateValue } from "../context/StateProvider";
 import { getBasketTotal } from "../context/reducer";
 import "../styles/Subtotal.css";
 
 function Subtotal() {
-  const [{ basket }] = useStateValue();
+  const [{ basket }] = useStateValue() as ContextValue;
 
   return (
     <div className="subtotal">

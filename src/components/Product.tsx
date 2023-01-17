@@ -1,4 +1,4 @@
-import { useStateValue } from "../context/StateProvider";
+import { useStateValue, ContextValue } from "../context/StateProvider";
 import "../styles/Product.css";
 
 export interface productType {
@@ -9,9 +9,9 @@ export interface productType {
   rating: number;
 }
 
+
 function Product({ id, title, image, price, rating }: productType) {
-  // eslint-disable-next-line
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue() as ContextValue;
 
   const addToBasket = () => {
     dispatch({

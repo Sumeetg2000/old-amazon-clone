@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import "../styles/Checkout.css";
-import { useStateValue } from "../context/StateProvider";
+import { ContextValue, useStateValue } from "../context/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import { productType } from "./Product";
 import Subtotal from "./Subtotal";
 
 function Checkout() {
-  const [{ basket, user }] = useStateValue();
+  const [{ basket, user }] = useStateValue() as ContextValue;
 
   return (
     <div className="checkout">
@@ -47,7 +47,7 @@ function Checkout() {
         </div>
       </div>
 
-      <div className="checkout__right">{<Subtotal /> }</div>
+      <div className="checkout__right">{<Subtotal />}</div>
     </div>
   );
 }

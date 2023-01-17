@@ -7,7 +7,9 @@ interface StateInterface {
   children: JSX.Element;
 }
 
-export const StateContext = createContext<any>(null);
+export type ContextValue = [StateType, React.Dispatch<ActionType>];
+
+export const StateContext = createContext<ContextValue | null>(null);
 
 export const StateProvider = ({
   reducer,
