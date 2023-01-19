@@ -14,7 +14,7 @@ import Login from "./components/Login";
 import { useStateValue, ContextValue } from "./context/StateProvider";
 import "./styles/App.css";
 
-function App() {
+const App:React.FC<{}>=() =>{
   const [, dispatch] = useStateValue() as ContextValue;
 
   useEffect(() => {

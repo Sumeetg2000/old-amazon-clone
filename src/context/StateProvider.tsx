@@ -9,13 +9,13 @@ interface StateInterface {
 
 export type ContextValue = [StateType, React.Dispatch<ActionType>];
 
-export const StateContext = createContext<ContextValue | null>(null);
+ const StateContext = createContext<ContextValue | null>(null);
 
-export const StateProvider = ({
+export const StateProvider: React.FC<StateInterface> = ({
   reducer,
   initialState,
   children,
-}: StateInterface) => (
+}): JSX.Element => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>
     {children}
   </StateContext.Provider>

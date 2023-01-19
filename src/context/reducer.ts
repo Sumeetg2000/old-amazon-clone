@@ -1,8 +1,8 @@
-import { productType } from "../components/Product";
+import { ProductType } from "../components/Product";
 
 export type StateType = {
-  basket: productType[];
-  user: null | { email: string | null; uid: string;  };
+  basket: ProductType[];
+  user: null | { email: string | null; uid: string };
 };
 
 export const initialState: StateType = {
@@ -11,12 +11,14 @@ export const initialState: StateType = {
 };
 
 export type ActionType =
-  | { type: "ADD_TO_BASKET"; product: productType }
+  | { type: "ADD_TO_BASKET"; product: ProductType }
   | { type: "REMOVE_FROM_BASKET"; id: string }
   | { type: "EMPTY_BASKET" }
   | { type: "SET_USER"; user: StateType["user"] };
 
-export const getBasketTotal = (basket: productType[]) =>
+type GetBasketTotal = { (basket: ProductType[]): number };
+
+export const getBasketTotal: GetBasketTotal = (basket) =>
   basket.reduce((amount, item) => item.price + amount, 0);
 
 function reducer(state: StateType, action: ActionType): StateType {

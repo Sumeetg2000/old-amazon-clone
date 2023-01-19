@@ -1,10 +1,14 @@
+import { ProductType } from "./Product";
 import { ContextValue, useStateValue } from "../context/StateProvider";
-import { productType } from "./Product";
 import "../styles/CheckoutProduct.css";
 
-function CheckoutProduct({ id, image, title, price, rating }: productType) {
-
-
+const CheckoutProduct: React.FC<ProductType> = ({
+  id,
+  image,
+  title,
+  price,
+  rating,
+}): JSX.Element => {
   const [, dispatch] = useStateValue() as ContextValue;
 
   const removeFromBasket = () => {
@@ -35,6 +39,6 @@ function CheckoutProduct({ id, image, title, price, rating }: productType) {
       </div>
     </div>
   );
-}
+};
 
 export default CheckoutProduct;

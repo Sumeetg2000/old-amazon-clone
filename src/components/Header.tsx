@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Search, ShoppingBasket } from "@mui/icons-material";
-import "../styles/Header.css";
 import { ContextValue, useStateValue } from "../context/StateProvider";
 import { auth, signOut } from "../firebase/firebase";
+import "../styles/Header.css";
 
-function Header() {
+const Header: React.FC<{}> = (): JSX.Element => {
   const [{ basket, user }] = useStateValue() as ContextValue;
 
   const handleAuthenticaton = () => {
@@ -63,6 +63,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

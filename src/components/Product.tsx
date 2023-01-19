@@ -1,7 +1,7 @@
 import { useStateValue, ContextValue } from "../context/StateProvider";
 import "../styles/Product.css";
 
-export interface productType {
+export interface ProductType {
   id: string;
   title: string;
   image: string;
@@ -9,8 +9,13 @@ export interface productType {
   rating: number;
 }
 
-
-function Product({ id, title, image, price, rating }: productType) {
+const Product: React.FC<ProductType> = ({
+  id,
+  title,
+  image,
+  price,
+  rating,
+}): JSX.Element => {
   const [, dispatch] = useStateValue() as ContextValue;
 
   const addToBasket = () => {
@@ -41,6 +46,6 @@ function Product({ id, title, image, price, rating }: productType) {
       <button onClick={addToBasket}>Add to Basket</button>
     </div>
   );
-}
+};
 
 export default Product;

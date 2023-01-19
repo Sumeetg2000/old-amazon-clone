@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import "../styles/Checkout.css";
-import { ContextValue, useStateValue } from "../context/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { productType } from "./Product";
+import { ProductType } from "./Product";
 import Subtotal from "./Subtotal";
+import { ContextValue, useStateValue } from "../context/StateProvider";
+import "../styles/Checkout.css";
 
-function Checkout() {
+const Checkout: React.FC<{}> = (): JSX.Element => {
   const [{ basket, user }] = useStateValue() as ContextValue;
 
   return (
@@ -33,7 +33,7 @@ function Checkout() {
             </>
           )}
 
-          {basket.map((item: productType, i: number) => (
+          {basket.map((item: ProductType, i: number) => (
             <Fragment key={i}>
               <CheckoutProduct
                 id={item.id}
@@ -50,6 +50,6 @@ function Checkout() {
       <div className="checkout__right">{<Subtotal />}</div>
     </div>
   );
-}
+};
 
 export default Checkout;

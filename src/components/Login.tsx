@@ -7,7 +7,7 @@ import {
 import { auth } from "../firebase/firebase";
 import "../styles/Login.css";
 
-function Login() {
+const Login: React.FC<{}> = (): JSX.Element => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -83,6 +83,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

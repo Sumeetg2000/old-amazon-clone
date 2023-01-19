@@ -1,7 +1,7 @@
 import Product from "./Product";
 import "../styles/Home.css";
 
-function Home() {
+const Home: React.FC<{}> = (): JSX.Element => {
   return (
     <div className="home">
       <div className="home__container">
@@ -64,6 +64,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
